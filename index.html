@@ -1,0 +1,465 @@
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>Spatio-Temporal Methods in Environmental Epidemiology </title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.dropotron.min.js"></script>
+    <script src="js/jquery.scrolly.min.js"></script>
+    <script src="js/jquery.scrollgress.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script> <noscript>
+      <link rel="stylesheet" href="css/skel.css">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/style-wide.css">
+      <link rel="stylesheet" href="css/style-noscript.css">
+    </noscript>
+	<style>
+	.borderexample
+	{
+	border-style:solid;
+	border-color:#287EC7;
+	} 
+	</style>
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+  </head>
+     <header id="header">
+       <nav id="nav">
+        <ul style="text-align: center;">
+          <li><a href="index.html" style="background-color: #83d3c9; color: white">Home</a></li>
+          <li class="submenu"> <a href="" style="background-color: #83d3c9; color: white">Reviews</a>
+           <ul>
+            <li><a href="reviews/TASreview_Nov2016.pdf">American Statistician </a></li>
+           </ul>
+          </li>
+          <li class="submenu"> <a href="" style="background-color: #83d3c9; color: white">Resources by chapter</a>
+           <ul>
+            <li><a href="chapter1.html">Chapter 1: Why spatio-temporal epidemiology?</a></li>
+            <li><a href="chapter2.html">Chapter 2: Modelling health risks</a></li>
+            <li><a href="chapter3.html">Chapter 3: The importance of uncertainty</a></li>
+            <li><a href="chapter4.html">Chapter 4: Embracing uncertainty: the Bayesian approach</a></li>
+            <li><a href="chapter5.html">Chapter 5: The Bayesian approach in practice</a></li>
+            <li><a href="chapter6.html">Chapter 6: Strategies for modelling</a></li>
+            <li><a href="chapter7.html">Chapter 7: Is `real' data always quite so real?</a></li>
+            <li><a href="chapter8.html">Chapter 8: Spatial patterns in disease</a></li>
+            <li><a href="chapter9.html">Chapter 9: From points to fields: Modelling environmental hazards over space</a></li>
+            <li><a href="chapter10.html">Chapter 10: Why time also matters</a></li>
+            <li><a href="chapter11.html">Chapter 11: The interplay between space and time in exposure assessment</a></li>
+            <li><a href="chapter12.html">Chapter 12: Roadblocks on the way to causality: exposure pathways, aggregation and other sources of bias</a></li>
+            <li><a href="chapter13.html">Chapter 13: Better exposure measurements through better design</a></li>
+            <li><a href="chapter14.html">Chapter 14: New frontiers</a></li>
+           </ul>
+          </li>
+          <li class="submenu"> <a href="" style="background-color: #83d3c9; color: white">Courses</a>
+           <ul>
+						<li><a href="course_stat_epi.html">Statistical methods in epidemiology </a></li>
+						<li><a href="course_stm_epi.html">Spatio-temporal Methods in epidemiology</a></li>
+						<li><a href="course_adv_stats.html">Advanced statistical modelling in space and time</a></li>
+						<li><a href="course_buc1.html">BUC1 (CIMAT) When populations and hazards collide: modelling exposures<br>and health</a></li>
+						<li><a href="course_buc2.html">BUC2 (UNAM) Thinking Globally: The Role of Big Data</a></li>
+						<li><a href="course_cmm.html"> Detecting Pattens in Space and Time (CMM)</a></li>
+						<li><a href="course_buc4.html">BUC4 (Bath) New Frontiers: Advanced Modelling in Space and Time</a></li>
+						<li><a href="course_toronto.html">Big Data in Environmental Research</a></li>
+						<li><a href="course_num.html">Statistics and Data Science in Research: unlocking the power of your data</a></li>
+						<li><a href="course_clapem.html">Bayesian Hierarchical Models</a></li>
+						<li><a href="course_bucX.html">BUCX (UNAM) Quantifying the Health Impacts of Air Pollution</a></li>
+						<li><a href="course_iom.html">Environmental Health Impact Assessment using R (IOM)</a></li>
+           </ul>
+          </li>
+          <li class="submenu"> <a href="" style="background-color: #83d3c9; color: white">Computing resources</a>
+           <ul>
+            <li><a href="computing_winbugs.html">WinBUGS </a></li>
+            <li><a href="computing_inla.html">INLA</a></li>
+            <li><a href="computing_envirostat.html">EnviroStat</a></li>
+           </ul>
+          </li>
+          <li><a href="https://www.crcpress.com/product/isbn/9781482237030" style="background-color: #83d3c9; color: white">Book's webpage @ CRC</a></li>
+       </ul>
+      </nav>
+     </h1>
+    </header>
+      <!-- Banner -->
+      <section id="banner">
+        <!--
+					".inner" is set up as an inline-block so it automatically expands					in both directions to fit whatever's inside it. This means it won't					automatically wrap lines, so be sure to use line breaks where					appropriate (<br />).				-->
+        <div class="inner">
+          <header>
+            <h3>Spatial-Temporal Methods <br>
+              in Environmental Epidemiology<br>
+            </h3>
+          </header>
+          <p>Gavin Shaddick, University of Bath, UK </p>
+          <p>Jim Zidek, University of British Columbia, Canada<br>
+          </p>
+          <footer>
+            <ul class="buttons vertical">
+              <li><a href="#main" class="button fit scrolly"> Click here to find
+                  out more
+                  <p></p>
+                </a></li>
+            </ul>
+          </footer>
+        </div>
+      </section>
+      <!-- Main -->
+      <article id="main">
+        <header class="special container"> <span class="icon fa-bar-chart-o"></span><span
+            style="font-size: 14pt">
+            <p align="left"><strong>Spatio-Temporal Methods in Environmental
+              Epidemiology</strong> is the first book of its kind to specifically address
+              the interface between environmental epidemiology and
+              spatio-temporal modeling. In response to the growing need for
+              collaboration between statisticians and environmental
+              epidemiologists, the book links recent developments in
+              spatio-temporal methodology with epidemiological applications.
+              Drawing on real-life problems, it provides the tools required to
+              exploit advances in methodology when assessing the health risks
+              associated with environmental hazards. Clear guidelines are given
+              to enable the implementation of methodology and estimation of
+              risks in practice. </p>
+            <p align="left"> Designed for graduate students in both
+              epidemiology and statistics, the text covers a wide range of
+              topics, from an introduction to epidemiological principles and the
+              foundations of spatio-temporal modeling to new directions for
+              research. It describes traditional and Bayesian approaches and
+              presents the theory of spatial, temporal, and spatio-temporal
+              modeling in the context of its application to environmental
+              epidemiology .The text includes practical examples together with
+              embedded R code and details of specific R packages and the use of
+              other software including WinBUGS/OpenBUGS and INLA. Online
+              resources associated with the book provide additional code, data,
+              examples, exercises, lab projects, and more. </p>
+            <p align="left"> Representing a major new direction in
+              environmental epidemiology, this book—in full color
+              throughout—underscores the increasing need to consider
+              dependencies in both space and time when modeling epidemiological
+              data.. Students will learn how to identify and model patterns in
+              spatio-temporal data and to exploit dependencies over both space
+              and time in order to reduce bias and inefficiency. </p>
+            <p align="left"> From this book the reader will have gained an
+              understanding of the following topics:</p>
+            <ul, type="shape," align="left">
+              <li>The basic concepts of epidemiology and the estimation of risks
+                associated with environmental hazards.</li>
+              <li>Hierarchical modelling with a Bayesian framework. </li>
+              <li>The theory of spatial, temporal and spatio--temporal process
+                needed for environmental health risk analysis.</li>
+              <li>Fundamental questions related to the nature and role of
+                uncertainty in environmental epidemiology and methods which may
+                help answer those questions.</li>
+              <li>Important areas of application within environmental
+                epidemiology together with strategies for building the models
+                that are needed and coping with challenges that arise.</li>
+              <li>Methods and software for the analysis and visualisation of
+                environmental and health. Examples of R and WinBUGS code are
+                given throughout the book and, together with data for the
+                examples the code, are included in the online resources. </li>
+              <li>Offer a variety of exercises, both theoretical and practical,
+                to assist in the development of the skills needed to perform
+                spatio--temporal analyses.</li>
+              <li>New frontiers and areas of current and future research. </li>
+            </ul,>
+            <p></p>
+            <header class="special container"> <span class="icon fa-book"></span><span
+                <font=""
+                size:x-large="">
+                <h2><strong>Chapter 1: Why spatio-temporal epidemiology?</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+                <p align="left">This chapter provides a overview of methods
+                  for spatio-temporal modelling and their use in
+                  epidemiological studies </p>
+                <p></p>
+				
+				
+                <h2><strong>Chapter 2: Modelling health risks</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+                <p align="left">This chapter contains the basic principles of
+                  epidemiological analysis and how estimates of the risks
+                  associated with exposures can be obtained. From this chapter,
+                  the reader will have gained an understanding of the following
+                  topics:</p>
+                <ul, type="shape," align="left">
+                  <li> Methods for expressing risk and their use with different
+                    types of epidemiological study. </li>
+                  <li>Calculating risks based on calculations of the expected
+                    number of health counts in an area, allowing for the
+                    age--sex structure of the underlying population. </li>
+                  <li>The use of generalised linear models (GLMS) to model
+                    counts of disease and case--control indicators.</li>
+                  <li>Modelling the effect of exposures on health and allowing
+                    for the possible effects of covariates.</li>
+                  <li>Cumulative exposures to environmental hazards.</li>
+                </ul,>
+				<p></p>
+				
+				
+	            <h2><strong>Chapter 3: The importance of uncertainty</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+                <p align="left">This chapter contains a discussion of uncertainty, 
+					both in terms of statistical modelling and quantification but also 
+					in the wider setting of sources of uncertainty outside those normally 
+					encountered in statistics. From this chapter, the reader will have 
+					gained an understandingof the following topics:</p>
+                <ul, type="shape," align="left">
+                  <li>Uncertainty can be dichotomised as either qualitative or quantitative, 
+					  with the former allowing consideration of a wide variety of sources of 
+					  uncertainty that would be difficult, if not impossible, to quantify 
+					  mathematically. </li>
+                  <li> Quantitative uncertainty can be thought of as comprising both aleatory 
+					  and epistemic components, the former representing stochastic uncertainty 
+					  and the latter subjective uncertainty.</li>
+                  <li>Methods for assessing uncertainty including eliciting prior information 
+					  from experts and sensitivity analysis.</li>
+                  <li>Indexing quantitative uncertainty using the variance and entropy of the 
+					  distribution of a random quantity.</li>
+                  <li>Uncertainty in post-normal science derives from a wide variety of issues 
+					  and can lead to high levels of that uncertainty with serious consequences. 
+					  Understanding uncertainty is therefore a vital feature of modern environmental 
+					  epidemiology.</li>
+                </ul,>
+				<p></p>
+				
+						
+	            <h2><strong>Chapter 4: Embracing uncertainty: the Bayesian approach</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+                <p align="left">This chapter introduces the Bayesian approach which provides a 
+					natural framework for dealing with uncertainty and also for fitting the models 
+					that will be encountered later in the book. From this chapter, the reader will have gained an 
+					understanding of the following topics:</p>
+                <ul, type="shape," align="left">
+                  <li>The use of prior distributions to capture beliefs before data are observed. </li>
+                  <li>The combination of prior beliefs and information from data to obtain posterior beliefs.</li>
+                  <li>The manipulation of prior distributions with likelihoods to formulate posterior distributions 
+					  and why conjugate priors are useful in this regard.</li>
+                  <li>The difference between informative and non-informative priors.</li>
+                  <li>The use of the posterior distribution for inference and methods for calculating 
+					  summary measures.</li>
+                </ul,>
+				<p></p>
+				
+				
+	            <h2><strong>Chapter 5: The Bayesian approach in practice</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+                <p align="left">This chapter describes methods for implementing Bayesian models when their 
+					complexity means that simple, analytic solutions may not be available. From this chapter, 
+					the reader will have gained an understanding of the following topics:</p>
+                <ul, type="shape," align="left">
+                  <li>Analytical approximations to the posterior distribution. </li>
+                  <li>Using samples from a posterior distribution for inference and Monte Carlo integration.</li>
+                  <li>Methods for direct sampling such as importance and rejection sampling.</li>
+                  <li>Markov Chain Monte Carlo (MCMC) and methods for obtaining samples from the required 
+					  posterior distribution including Metropolis–Hastings and Gibbs algorithms.</li>
+                  <li>Using WinBUGS to fit Bayesian models using Gibbs sampling.</li>
+				  <li>Integrated Nested Laplace Approximations (INLA) as a method for performing efficient 
+					  Bayesian inference including the use of R–INLA to implement a wide variety of latent 
+					  process models.</li>
+                </ul,>
+				<p></p>
+				
+				
+	            <h2><strong>Chapter 6: Strategies for modelling</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+                <p align="left">This chapter considers both some of the wider issues related to modelling 
+					and the generalisability of results and more technical material on the effect of 
+					covariates and model selection. From this chapter, the reader will have gained an 
+					understanding of the following topics:</p>
+                <ul, type="shape," align="left">
+                  <li>Why having contrasts in the variables of interest is important in assessing the effects 
+					  they have on the response variable.</li>
+                  <li>The biases that may arise in the presence of covariates and how covariates can affect 
+					  variable selection and model choice.</li>
+                  <li>Hierarchical models and how that can be used to acknowledge dependence between observations.</li>
+                  <li>There are issues with using p–values as measures of evidence against a null hypothesis. 
+					  Basing scientific conclusions on it can lead to non-reproducible results.</li>
+                  <li>The use of predictions from exposure models including acknowledging the additional uncertainty 
+					  involved when using predictions as inputs to a health model.</li>
+				  <li>Methods for performing model selection, including the pros and cons of automatic selection 
+					  procedures.</li>
+				  <li>Model selection within the Bayesian setting and how the models themselves can be incorporated 
+					  into the estimation process using Bayesian Model Averaging.</li>
+                </ul,>
+				<p></p>
+				
+				
+	            <h2><strong>Chapter 7: Is `real' data always quite so real?</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+				<p align="left">This chapter considers some of the issues that will arise when dealing with 
+					‘real data’. Data will commonly have missing values and may be measured with error. This 
+					error might be random or may be due to systematic patterns in how it was collected. From 
+					this chapter, the reader will have gained an understanding of the following topics:</p>
+                <ul, type="shape," align="left">
+				  <li>Classification of missing values into missing at random or not at random.</li>
+				  <li>Methods for imputing missing values.</li>
+				  <li>Various measurement models including classical and Berkson.</li>
+				  <li>The attenuation of regression coefficients under measurement error.</li>
+				  <li>Preferential sampling, where the process that determines the locations of 
+			   		  monitoring sites and the process being modelled are in some ways dependent.</li>
+				  <li>How preferential sampling can bias the measurements that arise from environmental 
+					  monitoring networks.</li>
+                </ul,>
+				<p></p>
+				
+				
+	            <h2><strong>Chapter 8: Spatial patterns in disease</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+				<p align="left">This chapter introduces disease mapping and contains the theory for 
+					spatial lattice processes and models for performing smoothing of risks over space. 
+					From this chapter, the reader will have gained an understanding of the following topics:</p>
+                <ul, type="shape," align="left">
+				  <li>Disease mapping, where we have seen how to improve estimates of risk by borrowing strength 
+					  from adjacent regions which can reduce the instability inherent in risk estimates (SMRs) 
+					  based on small expected numbers.
+				  <li>Seen how smoothing can be performed using either the empirical Bayes or fully Bayesian 
+					  approaches.
+				  <li>Been introduced to computational methods for handling areal data.
+				  <li>Learned about Besag’s seminal contributions to the field of spatial statistics including 
+					  the very important concept of a Markov random field.
+				  <li>Explored approaches to modelling a real data including the conditional autoregressive models.
+				  <li>Seen how Bayesian spatial models for lattice data use WinBUGS, R and R–INLA.
+                </ul,>
+				<p></p>
+				
+				
+	            <h2 align="center"><strong>Chapter 9: From points to fields: Modelling environmental hazards over space</strong></h2>
+				<hr style="background:#83d3c9; border:1; height:1px" />
+				<p align="left">This chapter contains the basic theory for spatial processes and a number 
+					of approaches to modelling point-referenced spatial data. From this chapter, the reader 
+					will have gained an understanding of the following topics:</p>
+                <ul, type="shape," align="left">
+				  <li>Visualisation techniques needed for both exploring and analysing spatial data and 
+					  communicating its features through the use of maps.</li>
+				  <li>Exploring the underlying structure of spatial data and methods for characterising 
+					  dependence over space.</li>
+				  <li>Second-order theory for spatial processes including the covariance. The variogram for 
+					  measuring spatial associations.</li>
+				  <li>Stationarity and isotropy.</li>
+				  <li>Methods for spatial prediction, using both classical methods (kriging) as well as 
+					  modern methods (Bayesian kriging).</li>
+				  <li>Non-stationarity fields.</li>
+                </ul,>
+				<p></p>
+				
+				
+				
+	            <h2><strong>Chapter 10: Why time also matters</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+				<p align="left">The chapter contains the theory required for handling time series data. 
+					From this chapter, the reader will have gained an understanding of the following topics:</p>
+                <ul, type="shape," align="left">
+				  <li>That a temporal process consists of both low and high frequency components, the former 
+					  playing a key role in determining long-term trends while the latter may be associated 
+					  with shorter-term changes.</li>
+				  <li>Techniques for the exploratory analysis of the data generated by the temporal process, 
+					  including the ACF (correlogram) and PACF (periodogram).</li>
+				  <li>Models for irregular (high frequency) components after the regular components (trend) 
+					  have been removed.</li>
+				  <li>Methods for forecasting, including exponential smoothing and ARIMA modelling.</li>
+				  <li>The state space modelling approach, which sits naturally within a Bayesian setting and 
+					  which provides a general framework for most of the classical time series models and 
+					  many more besides.</li>
+				  <li>Implementing time series processes within a Bayesian hierarchical framework.</li>
+                </ul,>
+				<p></p>
+				
+				
+	            <h2><strong>Chapter 11: The interplay between space and time in exposure assessment</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+				<p align="left">In this chapter we have seen the many ways in which the time can be added 
+					to space in order to characterise random exposure fields. From this chapter, the reader 
+					will have gained an understanding of the following topics:</p>
+                <ul, type="shape," align="left">
+				  <li>Additional power that can be gained in an epidemiological study by combining the 
+					  contrasts in the process over both time and space while characterising the stochastic 
+					  dependencies across both space and time for inferential analysis.</li>
+				  <li>Criteria that good approaches to spatio–temporal modelling should satisfy.</li>
+				  <li>General strategies for developing such approaches.</li>
+				  <li>Separability and non-separability in spatio–temporal models, and how these could be 
+					  characterised using the Kronecker product of correlation matrices.</li>
+				  <li>Examples of the use of spatio–temporal models in modelling environmental exposures.</li>
+                </ul,>
+				<p></p>
+				
+				
+	            <h2><strong>Chapter 12: Roadblocks on the way to causality: exposure pathways, aggregation and 
+					other sources of bias</strong></h2>
+			    <hr style="background:#83d3c9; border:0; height:1px" />
+				<p align="left">This chapter contains a discussion of the differences between causality and 
+					association. It also covers specific issues that may be encountered in this area when 
+					investigating the effects of environmental hazards on health. From this chapter, the 
+					reader will have gained an understanding of the following topics:</p>
+                <ul, type="shape," align="left">
+				  <li>Issues with causality in observational studies.</li>
+				  <li>The Bradford–Hill criteria which are a group of minimal conditions necessary to 
+					  provide adequate evidence of a causal relationship.</li>
+				  <li>Ecological bias which may occur when inferences about the nature of individuals 
+					  are made using aggregated data.</li>
+				  <li>The role of exposure variability in determining the extent of ecological bias.</li>
+				  <li>Approaches to acknowledging ecological bias in ecological studies.</li>
+				  <li>Concentration and exposure response functions.</li>
+				  <li>Models for estimating personal exposures including micro-environments.</li>
+                </ul,>
+				<p></p>
+				
+				
+				
+	            <h2><strong>Chapter 13: Better exposure measurements through better design</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+				<p align="left">This chapter looks at the emergence of a central purpose; to explore or reduce 
+					uncertainty about aspects of the 
+					environmental processes of interest. One form of uncertainty, aleatory, cannot be 
+					reduced by definition whereas with the other, epistemic, where uncertainty can be reduced 
+					(see Chapter 3). However that reduction does not stop the original network from becoming 
+					sub-optimal over time, pointing to the need to regularly reassess its performance. From 
+					that perspective we see that the design criteria must allow for the possibility of ‘gauging’ 
+					(adding monitors to) sites that</p>
+                <ul, type="shape," align="left">
+				  <li>Maximally reduce uncertainty at their space–time points (measuring their responses 
+					  eliminates their uncertainty);</li>
+				  <li>Best minimise uncertainty at other locations;</li>
+				  <li>Best inform about process parameters;</li>
+				  <li>Best detect non-compliers.</li>
+				</ul,>
+				<br>
+				<p align="left">From this chapter, the reader will have gained an understanding of many of the 
+					challenges that the network designer may face. These involve the following topics:</p>
+                <ul, type="shape," align="left">
+				  <li>A multiplicity of valid design objectives.</li>
+				  <li>Unforeseen and changing objectives.</li>
+				  <li>A multiplicity of responses at each site, i.e. which should be monitored.</li>
+				  <li>A need to use prior knowledge and to characterise prior uncertainty.</li>
+				  <li>A need to formulate realistic process models.</li>
+				  <li>A requirement to take advantage of, and integrate with, existing networks.</li>
+				  <li>The need to be realistic, meaning to contend with economic as well as administrative 
+					  demands and constraints.</li>
+                </ul,>
+				<p></p>
+				
+				
+				
+				<h2><strong>Chapter 14: New frontiers</strong></h2>
+				<hr style="background:#83d3c9; border:0; height:1px" />
+				<p align="left">In this chapter the reader will have encountered a selection of new 
+					frontiers in spatio– temporal epidemiology including the following:</p>
+                <ul, type="shape," align="left">
+				  <li>A number of areas that are currently under active development.</li>
+				  <li>Two modern approaches to addressing the problem of non-stationarity in random spatio–
+					  temporal fields; warping and dimension expansion.</li>
+				  <li>How dimension expansion can be used to dramatically reduce non-stationarity and suggest 
+					  its possible causes.</li>
+				  <li>A powerful approach combining both physical and statistical modelling within a single 
+					  framework.</li>
+				</ul,>
+                <p></p>
+              </span> 
+      </header>
+   <!-- Footer -->
+    <footer id="footer"><span>
+     <ul class="copyright">
+	  <li>&copy;Gavin Shaddick and James V. Zidek 2015</li>
+	 </ul>
+    </span></footer>
+</html>
